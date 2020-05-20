@@ -165,42 +165,73 @@
         <p>leetcode_914</p>
 <p>2020-05-20 15:49:05</p>
 <h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1><p><strong>检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。</strong></p>
-<p><strong>解：</strong></p>
-<p><strong>统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。</strong></p>
-<p><strong>```C</strong></p>
-<p><strong>//求最大公约数</strong></p>
-<p><strong>int gcd(int a,int b){</strong></p>
-<p><strong>if(b == 0)</strong></p>
-<p><strong>return a;</strong></p>
-<p><strong>return gcd(b,a%b);</strong></p>
-<p><strong>}</strong></p>
-<p><strong>class Solution {</strong></p>
-<p><strong>public:</strong></p>
-<p><strong>bool hasGroupsSizeX(vector&lt;int&gt;&amp; deck) {</strong></p>
-<p><strong>int bucket[10000] = {0};</strong></p>
-<p><strong>int g = 0;</strong></p>
-<p><strong>for (int d : deck) bucket[d]++; //基于范围的for循环(C++11)</strong></p>
-<p><strong>for (int b : bucket) g = gcd(b, g);</strong></p>
-<p><strong>return g &gt;= 2;</strong></p>
-<p><strong>}</strong></p>
-<p><strong>};</strong></p>
-<p><strong>```</strong></p>
-<p><strong>Tip：</strong></p>
-<p><strong>for 语句允许简单的范围迭代：</strong></p>
-<p><strong>```C</strong></p>
-<p><strong>int my_array[5] = {1, 2, 3, 4, 5};</strong></p>
-<p><strong>// 每个数组元素乘于 2</strong></p>
-<p><strong>for (int &amp;x : my_array){</strong></p>
-<p><strong>x *= 2;</strong></p>
-<p><strong>cout &lt;&lt; x &lt;&lt; endl;</strong></p>
-<p><strong>}</strong></p>
-<p><strong>// auto 类型也是 C++11 新标准中的，用来自动获取变量的类型</strong></p>
-<p><strong>for (auto &amp;x : my_array) {</strong></p>
-<p><strong>x *= 2;</strong></p>
-<p><strong>cout &lt;&lt; x &lt;&lt; endl;</strong></p>
-<p><strong>}</strong></p>
-<p><strong>```</strong></p>
-<p><strong>上面for述句的第一部分定义被用来做范围迭代的变量，就像被声明在一般for循环的变量一样，其作用域仅只于循环的范围。而在”:”之后的第二区块，代表将被迭代的范围。</strong></p>
+<p>解：</p>
+<p>统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。</p>
+<pre name="code" class="c++">
+
+//求最大公约数
+
+int gcd(int a,int b){
+
+if(b == 0)
+
+return a;
+
+return gcd(b,a%b);
+
+}
+
+class Solution {
+
+public:
+
+bool hasGroupsSizeX(vector\<int\>& deck) {
+
+int bucket[10000] = {0};
+
+int g = 0;
+
+for (int d : deck) bucket[d]++; //基于范围的for循环(C++11)
+
+for (int b : bucket) g = gcd(b, g);
+
+return g \>= 2;
+
+}
+
+};
+
+</pre>
+
+<p>Tip：</p>
+<p>for 语句允许简单的范围迭代：</p>
+<pre name="code" class="c++">
+
+int my_array[5] = {1, 2, 3, 4, 5};
+
+// 每个数组元素乘于 2
+
+for (int &x : my_array){
+
+x \*= 2;
+
+cout \<\< x \<\< endl;
+
+}
+
+// auto 类型也是 C++11 新标准中的，用来自动获取变量的类型
+
+for (auto &x : my_array) {
+
+x \*= 2;
+
+cout \<\< x \<\< endl;
+
+}
+
+</pre>
+
+<p>上面for述句的第一部分定义被用来做范围迭代的变量，就像被声明在一般for循环的变量一样，其作用域仅只于循环的范围。而在”:”之后的第二区块，代表将被迭代的范围。</p>
 
       
 
