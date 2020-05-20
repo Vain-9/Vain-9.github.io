@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode-914 | Vain</title>
+  <title>leetcode_914 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leetcode_914 2020-05-20 15:49:05 914.卡牌分组检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。 解： 统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。   &#x2F;&#x2F;求最大公约数  int gcd(int a,int b){  if(b &#x3D;&#x3D; 0)  return a;  return gcd(">
+  <meta name="description" content="914.卡牌分组检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。 解： 统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。 12345678910111213141516&#x2F;&#x2F;求最大公约数int gcd(int a,int b)&amp;#123;	if(b &#x3D;&#x3D; 0)	return a;	return gcd(b,a%b);&amp;#125">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-914">
+<meta property="og:title" content="leetcode_914">
 <meta property="og:url" content="http://yoursite.com/2020/05/20/leetcode-914/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="leetcode_914 2020-05-20 15:49:05 914.卡牌分组检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。 解： 统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。   &#x2F;&#x2F;求最大公约数  int gcd(int a,int b){  if(b &#x3D;&#x3D; 0)  return a;  return gcd(">
+<meta property="og:description" content="914.卡牌分组检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。 解： 统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。 12345678910111213141516&#x2F;&#x2F;求最大公约数int gcd(int a,int b)&amp;#123;	if(b &#x3D;&#x3D; 0)	return a;	return gcd(b,a%b);&amp;#125">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-20T07:49:05.859Z">
-<meta property="article:modified_time" content="2020-05-20T08:35:22.576Z">
+<meta property="article:published_time" content="2020-05-20T08:43:13.000Z">
+<meta property="article:modified_time" content="2020-05-20T08:43:28.847Z">
 <meta property="article:author" content="Vain">
+<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -151,87 +152,27 @@
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-914
+      leetcode_914
     </h1>
   
 
         
         <a href="/2020/05/20/leetcode-914/" class="archive-article-date">
-  	<time datetime="2020-05-20T07:49:05.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+  	<time datetime="2020-05-20T08:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>leetcode_914</p>
-<p>2020-05-20 15:49:05</p>
-<h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1><p><strong>检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。</strong></p>
+        <h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1><p><strong>检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。</strong></p>
 <p>解：</p>
 <p>统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。</p>
-<pre name="code" class="c++">
-
-//求最大公约数
-
-int gcd(int a,int b){
-
-if(b == 0)
-
-return a;
-
-return gcd(b,a%b);
-
-}
-
-class Solution {
-
-public:
-
-bool hasGroupsSizeX(vector\<int\>& deck) {
-
-int bucket[10000] = {0};
-
-int g = 0;
-
-for (int d : deck) bucket[d]++; //基于范围的for循环(C++11)
-
-for (int b : bucket) g = gcd(b, g);
-
-return g \>= 2;
-
-}
-
-};
-
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求最大公约数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">hasGroupsSizeX</span><span class="params">(<span class="built_in">vector</span>\&lt;<span class="keyword">int</span>\&gt;&amp; deck)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> bucket[<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> g = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> d : deck) bucket[d]++; <span class="comment">//基于范围的for循环(C++11)</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> b : bucket) g = gcd(b, g);</span><br><span class="line">		<span class="keyword">return</span> g \&gt;= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>Tip：</p>
 <p>for 语句允许简单的范围迭代：</p>
-<pre name="code" class="c++">
-
-int my_array[5] = {1, 2, 3, 4, 5};
-
-// 每个数组元素乘于 2
-
-for (int &x : my_array){
-
-x \*= 2;
-
-cout \<\< x \<\< endl;
-
-}
-
-// auto 类型也是 C++11 新标准中的，用来自动获取变量的类型
-
-for (auto &x : my_array) {
-
-x \*= 2;
-
-cout \<\< x \<\< endl;
-
-}
-
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> my_array[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="comment">// 每个数组元素乘于 2</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> &amp;x : my_array)&#123;</span><br><span class="line">	x \*= <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">cout</span> \&lt;\&lt; x \&lt;\&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// auto 类型也是 C++11 新标准中的，用来自动获取变量的类型</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;x : my_array) &#123;</span><br><span class="line">	x \*= <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">cout</span> \&lt;\&lt; x \&lt;\&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面for述句的第一部分定义被用来做范围迭代的变量，就像被声明在一般for循环的变量一样，其作用域仅只于循环的范围。而在”:”之后的第二区块，代表将被迭代的范围。</p>
 
@@ -242,6 +183,17 @@ cout \<\< x \<\< endl;
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -381,6 +333,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">x</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">array</a>
               </li>
             
             <div class="clearfix"></div>
