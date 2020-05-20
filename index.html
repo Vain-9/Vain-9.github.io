@@ -149,21 +149,59 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/leetcode-914/">leetcode_914</a>
+      <a class="article-title" href="/2020/05/20/leetcode-914/">leetcode-914</a>
     </h1>
   
 
         
         <a href="/2020/05/20/leetcode-914/" class="archive-article-date">
-  	<time datetime="2020-05-20T07:49:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
+  	<time datetime="2020-05-20T07:49:05.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1>
-        
+        <p>leetcode_914</p>
+<p>2020-05-20 15:49:05</p>
+<h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1><p><strong>检查一个数组是否符合分组的规则——可以分成大小一样的若干数组且各个数组中的数字都一样（子数组长度最小为2）。</strong></p>
+<p><strong>解：</strong></p>
+<p><strong>统计各个数字出现的次数，然后求其是否存在最大公约数大于等于2。</strong></p>
+<p><strong>```C</strong></p>
+<p><strong>//求最大公约数</strong></p>
+<p><strong>int gcd(int a,int b){</strong></p>
+<p><strong>if(b == 0)</strong></p>
+<p><strong>return a;</strong></p>
+<p><strong>return gcd(b,a%b);</strong></p>
+<p><strong>}</strong></p>
+<p><strong>class Solution {</strong></p>
+<p><strong>public:</strong></p>
+<p><strong>bool hasGroupsSizeX(vector&lt;int&gt;&amp; deck) {</strong></p>
+<p><strong>int bucket[10000] = {0};</strong></p>
+<p><strong>int g = 0;</strong></p>
+<p><strong>for (int d : deck) bucket[d]++; //基于范围的for循环(C++11)</strong></p>
+<p><strong>for (int b : bucket) g = gcd(b, g);</strong></p>
+<p><strong>return g &gt;= 2;</strong></p>
+<p><strong>}</strong></p>
+<p><strong>};</strong></p>
+<p><strong>```</strong></p>
+<p><strong>Tip：</strong></p>
+<p><strong>for 语句允许简单的范围迭代：</strong></p>
+<p><strong>```C</strong></p>
+<p><strong>int my_array[5] = {1, 2, 3, 4, 5};</strong></p>
+<p><strong>// 每个数组元素乘于 2</strong></p>
+<p><strong>for (int &amp;x : my_array){</strong></p>
+<p><strong>x *= 2;</strong></p>
+<p><strong>cout &lt;&lt; x &lt;&lt; endl;</strong></p>
+<p><strong>}</strong></p>
+<p><strong>// auto 类型也是 C++11 新标准中的，用来自动获取变量的类型</strong></p>
+<p><strong>for (auto &amp;x : my_array) {</strong></p>
+<p><strong>x *= 2;</strong></p>
+<p><strong>cout &lt;&lt; x &lt;&lt; endl;</strong></p>
+<p><strong>}</strong></p>
+<p><strong>```</strong></p>
+<p><strong>上面for述句的第一部分定义被用来做范围迭代的变量，就像被声明在一般for循环的变量一样，其作用域仅只于循环的范围。而在”:”之后的第二区块，代表将被迭代的范围。</strong></p>
+
       
 
       
@@ -171,17 +209,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -529,10 +556,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">x</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">array</a>
               </li>
             
             <div class="clearfix"></div>
