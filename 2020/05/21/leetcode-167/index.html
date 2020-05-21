@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>leetcode_167 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="167.两数之和II -输入有序数组给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。 解： 双指针法——分别记录第一个元素和最后一个元素，求和后与target值比较大小，偏大则移动尾指针（值变小），偏小则移动头指针（值变大），等于目标值则按序输出头尾指针。 复杂度时间复杂度：O(n)。每个元素最多被访问一次。 空间复杂度：O(1)。只是用了两个指针。">
+  <meta name="description" content="167.两数之和II -输入有序数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode_167">
 <meta property="og:url" content="http://yoursite.com/2020/05/21/leetcode-167/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="167.两数之和II -输入有序数组给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。 解： 双指针法——分别记录第一个元素和最后一个元素，求和后与target值比较大小，偏大则移动尾指针（值变小），偏小则移动头指针（值变大），等于目标值则按序输出头尾指针。 复杂度时间复杂度：O(n)。每个元素最多被访问一次。 空间复杂度：O(1)。只是用了两个指针。">
+<meta property="og:description" content="167.两数之和II -输入有序数组">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-21T03:39:09.000Z">
-<meta property="article:modified_time" content="2020-05-21T06:03:19.517Z">
+<meta property="article:modified_time" content="2020-05-21T06:47:45.950Z">
 <meta property="article:author" content="Vain">
 <meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
@@ -165,7 +165,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="167-两数之和II-输入有序数组"><a href="#167-两数之和II-输入有序数组" class="headerlink" title="167.两数之和II -输入有序数组"></a>167.两数之和II -输入有序数组</h1><p><strong>给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。</strong></p>
+        <h1 id="167-两数之和II-输入有序数组"><a href="#167-两数之和II-输入有序数组" class="headerlink" title="167.两数之和II -输入有序数组"></a>167.两数之和II -输入有序数组</h1><a id="more"></a>
+
+<p><strong>给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。</strong></p>
 <p>解：</p>
 <p>双指针法——分别记录第一个元素和最后一个元素，求和后与target值比较大小，偏大则移动尾指针（值变小），偏小则移动头指针（值变大），等于目标值则按序输出头尾指针。</p>
 <h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度：O(n)。每个元素最多被访问一次。</p>
