@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Vain</title>
+  <title>leetcode_1 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Vain">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="1.两数之和给定一个数组以及一个目标值——在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 解： 暴力法—— 遍历数组，对于每一个函数x，都再次遍历数组查找是否存在于target-x相等的元素。 两遍哈希表—— Hash表支持以近似恒定的速度查找元素，通过以空间换取速度的方式。使用两次迭代，第一次迭代将每个元素的值和它的索引添加到表中，；第二次迭代检查每个元素所对应的目标元素targe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode_1">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/leetcode-1/index.html">
 <meta property="og:site_name" content="Vain">
+<meta property="og:description" content="1.两数之和给定一个数组以及一个目标值——在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。 解： 暴力法—— 遍历数组，对于每一个函数x，都再次遍历数组查找是否存在于target-x相等的元素。 两遍哈希表—— Hash表支持以近似恒定的速度查找元素，通过以空间换取速度的方式。使用两次迭代，第一次迭代将每个元素的值和它的索引添加到表中，；第二次迭代检查每个元素所对应的目标元素targe">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-21T06:41:24.000Z">
+<meta property="article:modified_time" content="2020-05-21T06:45:14.821Z">
 <meta property="article:author" content="Vain">
+<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -140,36 +145,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-leetcode-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      leetcode_1
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/21/leetcode-1/" class="archive-article-date">
+
+        
+        <a href="/2020/05/21/leetcode-1/" class="archive-article-date">
   	<time datetime="2020-05-21T06:41:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/21/leetcode-1/">leetcode_1</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h1><p><strong>给定一个数组以及一个目标值——在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</strong></p>
+<p>解：</p>
+<p>暴力法——</p>
+<p>遍历数组，对于每一个函数x，都再次遍历数组查找是否存在于target-x相等的元素。</p>
+<p>两遍哈希表——</p>
+<p>Hash表支持以近似恒定的速度查找元素，通过以空间换取速度的方式。使用两次迭代，第一次迭代将每个元素的值和它的索引添加到表中，；第二次迭代检查每个元素所对应的目标元素target-x是否存在于表中。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">            m[nums[i]] = i; <span class="comment">//向map中添加元素</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m.<span class="built_in">find</span>(target-nums[i]) != m.<span class="built_in">end</span>() &amp;&amp; m[target-nums[i]] != i)<span class="comment">//如果m中存在对应的键值，且不为i</span></span><br><span class="line">                <span class="keyword">return</span> &#123;i, m[target-nums[i]]&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p><strong>暴力法</strong></p>
+<p>时间复杂度：O(n2)。对于每一个元素，都需要遍历整个数组来查找是否存在target-x。</p>
+<p>空间复杂度：O(1)。</p>
+<p><strong>两遍哈希表</strong></p>
+<p>时间复杂度：O(n)。把数组遍历了两次，由于哈希表将查找时间缩短到O(1)，所以时间复杂度为O(n)。</p>
+<p>空间复杂度：O(n)。所需的额外空间取决于哈希表中存储的元素数量，该表中存储了n<br>个元素。</p>
+<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p>HashMap在resize、put的时候消耗了很多时间没有计算在内，但这些其实都属于初始化范畴，在实际开发中，其实是一次性开销。</p>
+<p>Java<br>集合类中的Map.containsKey()方法判断Map集合对象中是否包含指定的键名。如果Map集合中包含指定的键名，则返回true，否则返回false。</p>
+<p>也去专门去查了hashMap.containsKey()的时间复杂度，使用指针指向数组引用，时间复杂度为O(1)，未命中时，才回去遍历红黑树，时间复杂度为O(n)，如果仔细地挑选哈希函数，在哈希表中进行查找的用时应当被摊销为O(1)。</p>
+<p>C++中，在map中查找key为k的元素，返回指向它的迭代器。若k不存在，返回<br>map::end，返回值是一个迭代器，成功返回迭代器指向要查找的元素，失败返回的迭代器指向end。</p>
+<table>
+<thead>
+<tr>
+<th>map</th>
+<th>unordered_map</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#include &lt;map&gt;</td>
+<td>#include &lt;unordered_map&gt;</td>
+</tr>
+<tr>
+<td>map内部实现了一个红黑树，该结构具有自动排序的功能，因此map内部的所有元素都是有序的，红黑树的效率决定了map的效率。</td>
+<td>unordered_map内部实现了一个哈希表，因此其元素的排列顺序是杂乱的，无序的。</td>
+</tr>
+<tr>
+<td>红黑树、有序、空间占用率高</td>
+<td>哈希表、无序、耗费时间多</td>
+</tr>
+<tr>
+<td>对于那些有顺序要求的问题，用map会更高效一些</td>
+<td>对于查找问题，unordered_map会更加高效一些</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -181,247 +226,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/21/leetcode-167/" class="archive-article-date">
-  	<time datetime="2020-05-21T03:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/21/leetcode-167/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode_167</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/21/leetcode-167/">leetcode_167</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/leetcode-941/" class="archive-article-date">
-  	<time datetime="2020-05-20T09:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/leetcode-941/">leetcode_941</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/leetcode-914/" class="archive-article-date">
-  	<time datetime="2020-05-20T08:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/leetcode-914/">leetcode_914</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/" class="archive-article-date">
-  	<time datetime="2020-05-19T08:48:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/">人物塑造-第二真</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/05/lu/" class="archive-article-date">
-  	<time datetime="2020-04-05T07:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/05/lu/">lu</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-title">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/05/x/" class="archive-article-date">
-  	<time datetime="2020-04-05T07:48:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/05/x/">x</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">x</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -445,8 +298,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
