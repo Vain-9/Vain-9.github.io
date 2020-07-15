@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vain</title>
+  <title>leetcode-977 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Vain">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="977.有序数组的平方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-977">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/leetcode-977/index.html">
 <meta property="og:site_name" content="Vain">
+<meta property="og:description" content="977.有序数组的平方">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-15T12:29:58.000Z">
+<meta property="article:modified_time" content="2020-07-15T12:31:42.773Z">
 <meta property="article:author" content="Vain">
+<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -140,104 +145,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-HTML入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-leetcode-977" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/HTML%E5%85%A5%E9%97%A8/">HTML入门</a>
+    <h1 class="article-title" itemprop="name">
+      leetcode-977
     </h1>
   
 
         
-        <a href="/2020/05/21/HTML%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-05-21T09:30:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
+        <a href="/2020/07/15/leetcode-977/" class="archive-article-date">
+  	<time datetime="2020-07-15T12:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="HTML的入门学习"><a href="#HTML的入门学习" class="headerlink" title="HTML的入门学习"></a>HTML的入门学习</h1>
-        
-      
+        <h1 id="977-有序数组的平方"><a href="#977-有序数组的平方" class="headerlink" title="977.有序数组的平方"></a>977.有序数组的平方</h1><a id="more"></a>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p><strong>给定一个按非递减顺序排序的整数数组A（元素有正有负可重复），返回每个数字的平方组成的新数组，要求也按非递减顺序排序。</strong></p>
+<p>解：</p>
+<p>这题的重点在于处理负数，本身数组是有序的，但是平方后前面的负数会变大到后面，整体思路有两种，重点学习第二种（时间复杂度更低）。</p>
+<p>第一种很直接，即再创建一个空数组，然后把原来数组中的元素全部平方，放入空数组中再进行排序即可。</p>
+<p>方法二为双指针法，同样建立一个空数组，使用两个指针，分别负责记录最大的负数和最小的非负数，然后逐次比较两者的平方值，把小的放入新数组中（前部），当某个指针到头后，停止比较，并把另一个指针剩余的部分都放入目标数组中（正负都进行放置，可以省略区分是哪个指针到达的边界的判断）。</p>
+<p>双指针法可以进行改进，从两头直接开始向中间移动（最小的负数和最大的正数），可以免去寻找中间正负拐点的步骤，同时目标数组的指针需要从前至后添加元素。对应的边界判断成了，哪个指针对应的元素先变为0，然后同样的把另一个指针（两个都操作，同上）到0元素的值都放入目标数组即可。如果有不止一个元素为0，这个方法是没有进行处理的，但因为建立数组的时候前几项默认为0，所以不处理中间的多个0元素也不影响最终结果。</p>
+<p><strong>复杂度</strong></p>
+<p>方法一：时间复杂度：O(NlogN)；空间复杂度：O(N)</p>
+<p>方法二：时间复杂度：O(N)；空间复杂度：O(N)</p>
+<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p>Java<br>中数组A的元素个数（长度）为A.length，对于length属性，length()方法，size()方法的区分如下。</p>
+<table>
+<thead>
+<tr>
+<th>length属性</th>
+<th>length()方法</th>
+<th>size()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数组的长度</td>
+<td>字符串的长度</td>
+<td>泛型集合类的元素个数</td>
+</tr>
+<tr>
+<td>arr.length</td>
+<td>s.length()</td>
+<td>list.size()</td>
+</tr>
+</tbody></table>
+<p>以及对数组ans进行排序（原地排序）为Arrays.sort(ans)。</p>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/21/HTML%E5%85%A5%E9%97%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/leetcode-1/">leetcode_1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/21/leetcode-1/" class="archive-article-date">
-  	<time datetime="2020-05-21T06:41:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h1>
-        
       
 
       
@@ -259,16 +219,24 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/21/leetcode-1/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/13/ago/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ago</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -288,456 +256,14 @@
 
 
 
-
-  
-    <article id="post-leetcode-167" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/leetcode-167/">leetcode_167</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/21/leetcode-167/" class="archive-article-date">
-  	<time datetime="2020-05-21T03:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="167-两数之和II-输入有序数组"><a href="#167-两数之和II-输入有序数组" class="headerlink" title="167.两数之和II -输入有序数组"></a>167.两数之和II -输入有序数组</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/21/leetcode-167/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-941" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/leetcode-941/">leetcode_941</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/20/leetcode-941/" class="archive-article-date">
-  	<time datetime="2020-05-20T09:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="941-有效的山脉数组"><a href="#941-有效的山脉数组" class="headerlink" title="941.有效的山脉数组"></a>941.有效的山脉数组</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/leetcode-941/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode-914" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/leetcode-914/">leetcode_914</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/20/leetcode-914/" class="archive-article-date">
-  	<time datetime="2020-05-20T08:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="914-卡牌分组"><a href="#914-卡牌分组" class="headerlink" title="914.卡牌分组"></a>914.卡牌分组</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/leetcode-914/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-人物塑造-第二真" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/">人物塑造-第二真</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/" class="archive-article-date">
-  	<time datetime="2020-05-19T08:48:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人的认知是片面独立的。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="title-lu" class="article article-type-title  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/05/lu/">lu</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/05/lu/" class="archive-article-date">
-  	<time datetime="2020-04-05T07:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>热爱</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/05/lu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="title-x" class="article article-type-title  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/05/x/">x</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/05/x/" class="archive-article-date">
-  	<time datetime="2020-04-05T07:48:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Practice in individual  </p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">x</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/05/x/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -761,8 +287,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
