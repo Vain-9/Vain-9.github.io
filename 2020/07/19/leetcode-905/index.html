@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Vain</title>
+  <title>leetcode-905 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Vain">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="905.按奇偶排序数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-905">
+<meta property="og:url" content="http://yoursite.com/2020/07/19/leetcode-905/index.html">
 <meta property="og:site_name" content="Vain">
+<meta property="og:description" content="905.按奇偶排序数组">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-19T12:52:20.000Z">
+<meta property="article:modified_time" content="2020-07-20T11:20:14.996Z">
 <meta property="article:author" content="Vain">
+<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -140,74 +145,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-leetcode-905" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/20/leetcode-1470/" class="archive-article-date">
-  	<time datetime="2020-07-20T13:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/20/leetcode-1470/">leetcode-1470</a>
+    <h1 class="article-title" itemprop="name">
+      leetcode-905
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/19/leetcode-905/" class="archive-article-date">
+        
+        <a href="/2020/07/19/leetcode-905/" class="archive-article-date">
   	<time datetime="2020-07-19T12:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/19/leetcode-905/">leetcode-905</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="905-按奇偶排序数组"><a href="#905-按奇偶排序数组" class="headerlink" title="905.按奇偶排序数组"></a>905.按奇偶排序数组</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<p><strong>给定一个非负整数数组A，返回一个数组，在该数组中，A的所有偶数元素之后跟着所有奇数元素。你可以返回满足此条件的任何数组作为答案。</strong></p>
+<p>解：</p>
+<p>这题的标准答案不唯一，所以要追求更好的复杂度情况。</p>
+<p>个人的方法（双指针）：对于新建数组的高空间复杂度的方法不做讨论，维护一个指针遍历数组，出现的第一个奇数的位置后停止，同时再维护一个指针，沿着该位置继续移动，若遇到偶数，则与第一个指针所记录的位置的元素进行交换，而后继续移动第一个指针寻找下一个奇数，若第一个奇数后再无偶数，即第二个指针遍历结束也未遇到偶数，则跳出两层循环，算法结束。代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.length<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(j!=i &amp;&amp; i!=A.length<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i]%<span class="number">2</span> != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">while</span>(A[j]%<span class="number">2</span> != <span class="number">0</span> &amp;&amp; j&gt;i)&#123;                    </span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> temp = A[i];</span><br><span class="line">                A[i] = A[j];</span><br><span class="line">                A[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是官方解法：一方面是最简单的，创建新数组，两轮扫描分别按要求放置，时间/空间复杂度都为O(n)；其次可以使用快速排序，直接按照模2的结果排序——</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        Integer[] B = <span class="keyword">new</span> Integer[A.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; A.length; ++t)</span><br><span class="line">            B[t] = A[t];</span><br><span class="line"></span><br><span class="line">        Arrays.sort(B, (a, b) -&gt; Integer.compare(a%<span class="number">2</span>, b%<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>; t &lt; A.length; ++t)</span><br><span class="line">            A[t] = B[t];</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Alternative:</span></span><br><span class="line"><span class="comment">        return Arrays.stream(A)</span></span><br><span class="line"><span class="comment">                     .boxed()</span></span><br><span class="line"><span class="comment">                     .sorted((a, b) -&gt; Integer.compare(a%2, b%2))</span></span><br><span class="line"><span class="comment">                     .mapToInt(i -&gt; i)</span></span><br><span class="line"><span class="comment">                     .toArray();</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后是重点学习的方法——快排：</p>
+<p>维护两个指针i和j，循环保证每刻小于i的变量都是偶数（也就是A[k]%2==0当k&lt;i），所有大于j的都是奇数。</p>
+<p>所以，4种情况针对(A[i]%2,A[j]%2)：</p>
+<p>如果是(0,1)，那么万事大吉i++并且j–。</p>
+<p>如果是(1,0)，那么交换两个元素，然后继续。</p>
+<p>如果是(0,0)，那么说明i位置是正确的，只能i++。</p>
+<p>如果是(1,1)，那么说明j位置是正确的，只能j–。</p>
+<p>通过这4种情况，循环不变量得以维护，并且j-i不断变小。最终就可以得到奇偶有序的数组。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArrayByParity(<span class="keyword">int</span>[] A) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> &gt; A[j] % <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = A[i];</span><br><span class="line">                A[i] = A[j];</span><br><span class="line">                A[j] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (A[i] % <span class="number">2</span> == <span class="number">0</span>) i++;</span><br><span class="line">            <span class="keyword">if</span> (A[j] % <span class="number">2</span> == <span class="number">1</span>) j--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度</strong></p>
+<p>最佳方法：时间复杂度：O(N)；空间复杂度：O(1)，个人方法和官方的第三种思路类似。</p>
+<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p>Java 中数组的排序以及合并等问题常常用到双指针法可以实现低时间/空间复杂度。</p>
+<p>判断奇偶：</p>
+<p>判断奇数：不可以通过a%2==1来判断，因为负奇数对2取余的结果为-1；可以使用a%2!=0来判断。</p>
+<p>此外，可以使用位操作，性能更高，即通过(a&amp;1)==1来判断是否为奇数。</p>
+<p>判断偶数：在Java中0%2的结果是商0余0，通过a%2==0来判断即可。</p>
+<p>在while循环中，如果涉及到数组下标，而且循环体中有指针的自增或者自减，则一定要在循环体或者循环条件中体现出限制范围，否则会因为超出数组下标的范围限制而报错。</p>
+<p>同样的，循环体一定要有跳出中断点。</p>
+<p>双指针中指针移动的控制很重要，移动的条件时机是一方面，更多的错误出在最后一步，该题当双指针相遇的时候停止移动，需要注意控制（指针移动，一个指针扫描奇元素，扫描到的时候另一个指针扫描偶元素，使用while循环扫描，在循环条件中要写明扫描的元素内容，何时停止，以及什么情况下终止扫描，即扫描结束，该题中当两个指针相遇即扫描结束，需要在两个指针的while中都进行体现）。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,315 +215,63 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/17/leetcode-922/" class="archive-article-date">
-  	<time datetime="2020-07-17T07:17:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/07/20/leetcode-1470/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode-1470
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/17/leetcode-922/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-922</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/17/leetcode-922/">leetcode-922</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/15/leetcode-m10-01/" class="archive-article-date">
-  	<time datetime="2020-07-15T14:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/15/leetcode-m10-01/">leetcode-m10.01</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/15/leetcode-977/" class="archive-article-date">
-  	<time datetime="2020-07-15T12:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/15/leetcode-977/">leetcode-977</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/ago/" class="archive-article-date">
-  	<time datetime="2020-07-13T13:22:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/ago/">ago</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">x</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/leetcode-985/" class="archive-article-date">
-  	<time datetime="2020-07-13T12:45:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/leetcode-985/">leetcode-985</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/leetcode-414/" class="archive-article-date">
-  	<time datetime="2020-07-13T09:54:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/leetcode-414/">leetcode-414</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/11/PONDER/" class="archive-article-date">
-  	<time datetime="2020-07-11T12:08:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/11/PONDER/">PONDER</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">x</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/x-1/" class="archive-article-date">
-  	<time datetime="2020-05-27T09:22:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/x-1/">x+</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">x</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -552,8 +296,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
