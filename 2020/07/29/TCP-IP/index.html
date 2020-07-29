@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode-1470 | Vain</title>
+  <title>TCP/IP | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1470.重新排列数组">
+  <meta name="description" content="TCP&#x2F;IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-1470">
-<meta property="og:url" content="http://yoursite.com/2020/07/20/leetcode-1470/index.html">
+<meta property="og:title" content="TCP&#x2F;IP">
+<meta property="og:url" content="http://yoursite.com/2020/07/29/TCP-IP/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="1470.重新排列数组">
+<meta property="og:description" content="TCP&#x2F;IP">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-20T13:29:38.000Z">
-<meta property="article:modified_time" content="2020-07-20T13:29:58.471Z">
+<meta property="article:published_time" content="2020-07-29T12:50:55.000Z">
+<meta property="article:modified_time" content="2020-07-29T12:51:45.829Z">
 <meta property="article:author" content="Vain">
-<meta property="article:tag" content="array">
+<meta property="article:tag" content="TCP">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -145,49 +145,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-1470" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-TCP-IP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-1470
+      TCP/IP
     </h1>
   
 
         
-        <a href="/2020/07/20/leetcode-1470/" class="archive-article-date">
-  	<time datetime="2020-07-20T13:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
+        <a href="/2020/07/29/TCP-IP/" class="archive-article-date">
+  	<time datetime="2020-07-29T12:50:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1470-重新排列数组"><a href="#1470-重新排列数组" class="headerlink" title="1470.重新排列数组"></a>1470.重新排列数组</h1><a id="more"></a>
+        <h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP "></a>TCP/IP </h1><a id="more"></a>
 
-<p><strong>给定一个数组 nums ，数组中有 2n 个元素，按 [x1,x2,…,xn,y1,y2,…,yn]的格式排列。要求将数组按 [x1,y1,x2,y2,…,xn,yn]格式重新排列，返回重排后的数组。</strong></p>
-<p>解：</p>
-<p>这题的题意很好理解，就是给定一个偶数项的数组，把后半部分和前半部分交叉放置后重新输出即可，时间复杂度O(n)很好实现，最简单的思路，创建一个新数组，一次循环把1-n和n-2n位置的元素分别放入新数组，新数组下标一次循环种两次自增即可。</p>
-<p>没有想到的比较巧妙的方法是空间复杂度为O(n)的解法，答主注意到了题目限制的元素的取值范围为1-1000之间且元素个数也小于1000，解法如下：</p>
-<p>一是通过位计算来节省空间，因为单个元素小于1000，意味着一个元素只占据了 10 个<br>bit（2^10 - 1 = 1023 &gt; 1000），而一个 int 有 32 个 bit。</p>
-<p>在下面的代码中，每一个 nums[i] 的最低的十个 bit（0-9 位），我们用来存储原来<br>nums[i] 的数字；再往前的十个 bit（10-19<br>位），我们用来存储重新排列后正确的数字是什么。在循环中，我们每次首先计算 nums[i]<br>对应的重新排列后的索引 j，之后，取 nums[i] 的低 10 位（nums[i] &amp; 1023），即<br>nums[i] 的原始信息，把他放到 nums[j] 的高十位上。最后，每个元素都取高 10<br>位的信息(e &gt;&gt; 10)，即是答案。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">shuffle</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n; i ++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i &lt; n ? <span class="number">2</span> * i : <span class="number">2</span> * (i - n) + <span class="number">1</span>;</span><br><span class="line">            nums[j] |= (nums[i] &amp; <span class="number">1023</span>) &lt;&lt; <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>&amp; e: nums) e &gt;&gt;= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>第二种方法的思想要反复学习巩固——双状态标记顺位遍历链式放置原地排序法！</p>
-<p>为了原地排序，这是一种很经典的方法，具体的思想是这样的：使用两种状态的标记，即可实现有规律的原地排序，并且避免覆盖而产生的问题。</p>
-<p>本题中刚好数组元素都大于0，则可以选择使用负数来标记已完成排序的元素。以本题为例——外层一个for循环遍历数组，每次判断要处理的元素是否大于0，若大于0，说明该元素还未归位，若小于0，则说明该元素已经处理过并正确放置；具体的处理方法是一个while循环（循环条件为a处元素大于0），当处理元素a时候，计算出a应该放置的位置，并与其交换的同时将其命为相反数（小于0，已放置完毕），然后继续下一轮循环，处理a处的元素（需要维持一个变量来记录a处元素原本的位置，以便进行正确交换放置），直到a处元素变为负数，说明和a位置有关的元素已经都放置完毕，便可以继续下一轮for循环。原地排序的情况下，每个元素只需要处理一次，即每次循环都正确放置了一个元素，所以时间复杂度为O(n)。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">shuffle</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n; i ++)</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// j 描述当前的 nums[i] 对应的索引，初始为 i</span></span><br><span class="line">                <span class="keyword">int</span> j = i; </span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span>(nums[i] &gt; <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 计算 j 索引的元素，也就是现在的 nums[i]，应该放置的索引</span></span><br><span class="line">                    j = j &lt; n ? <span class="number">2</span> * j : <span class="number">2</span> * (j - n) + <span class="number">1</span>; </span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 把 nums[i] 放置到 j 的位置，</span></span><br><span class="line">                    <span class="comment">// 同时，把 nums[j] 放到 i 的位置，在下一轮循环继续处理</span></span><br><span class="line">                    swap(nums[i], nums[j]); </span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 使用负号标记上，现在 j 位置存储的元素已经是正确的元素了 </span></span><br><span class="line">                    nums[j] = -nums[j]; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>&amp; e: nums) e = -e;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>推广一下：就是依次检查每个位置，维持一个循环，反复将该位置的元素与其目标位置的元素交换，并进行标记（维持一个变量，每次交换后储存该位置元素原本的位置），直到和该位置有关的交换链上的元素都放置完毕（该位置元素为已放置），则检查下一个位置是否放置完毕，直至遍历结束。该方法的时间复杂度为O(n)，空间复杂度为O(1)。</p>
-<p><strong>复杂度</strong></p>
-<p>最优解：时间复杂度：O(N)；空间复杂度：O(1)</p>
-<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p>Java提供的位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</p>
-<p>双状态标记顺位遍历链式放置原地排序法——</p>
-<p>为了原地排序，这是一种很经典的方法，具体的思想是这样的：使用两种状态的标记，即可实现有规律的原地排序，并且避免覆盖而产生的问题。</p>
-<p>就是依次检查每个位置，维持一个循环，反复将该位置的元素与其目标位置的元素交换，并进行标记（维持一个变量，每次交换后储存该位置元素原本的位置），直到和该位置有关的交换链上的元素都放置完毕（该位置元素为已放置），则检查下一个位置是否放置完毕，直至遍历结束。</p>
-<p>该方法的时间复杂度为O(n)，空间复杂度为O(1)。</p>
+<p>为了灵活，方便实习和维护，且更标准化，计算机网络使用了分层结构——</p>
+<p>国际标准化组织ISO制定了七层的开放系统互联基本参考模型OSI/RM，但较为复杂且难以实现；业界约定的四层的TCP/IP体系结构（实际应用），它包含应用层，运输层，网际层和网络接口层，为了清晰完善，综合OSI和TCP/IP的优点，采用一种只有五层协议的体系结构来进行分析学习。</p>
+<table>
+<thead>
+<tr>
+<th>TCP/IP</th>
+<th>OSI</th>
+<th>五层协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>四层</td>
+<td>七层</td>
+<td>五层</td>
+</tr>
+<tr>
+<td>应用层、运输层、网际层和网络接口层</td>
+<td>应用层、表示层、会话层、运输层、网络层、数据链路层、物理层</td>
+<td>应用层、运输层、网络层，数据链路层和物理层</td>
+</tr>
+</tbody></table>
+<p>TCP（传输控制协议）和IP（网际协议）<br>是最先定义的两个核心协议，所以才统称为TCP/IP协议族。</p>
+<h1 id="下面逐层解析"><a href="#下面逐层解析" class="headerlink" title="下面逐层解析"></a>下面逐层解析</h1><p><strong>运输层——</strong></p>
+<p>负责向两台主机进程之间的通信提供通用的数据传输服务。应用进程利用该服务传送应用层报文。主要使用以下协议：传输控制协议-TCP-提供面向连接的，可靠的数据传输服务；用户数据协议-UDP-提供无连接的，不保证数据传输的可靠性。</p>
+<table>
+<thead>
+<tr>
+<th>UDP</th>
+<th>TCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无连接</td>
+<td>面向连接</td>
+</tr>
+<tr>
+<td>不可靠传输-无流控和拥控</td>
+<td>可靠传输-有流控和拥控</td>
+</tr>
+<tr>
+<td>可多对多</td>
+<td>只能一对一</td>
+</tr>
+<tr>
+<td>报文</td>
+<td>字节流</td>
+</tr>
+<tr>
+<td>首部8bit</td>
+<td>首部20bit-60bit</td>
+</tr>
+<tr>
+<td>适用于实时如视频电话</td>
+<td>适用于可靠如文件传输</td>
+</tr>
+</tbody></table>
+<p><strong>相应的应用层协议——</strong></p>
+<p>应用进程间的通信和交互的规则。对于不同的网络应用需要不同的应用层协议。在互联网中应用层协议很多，如域名系统DNS，支持万维网应用的HTTP协议，支持电子邮件的SMTP协议等等。</p>
+<p>运行在TCP协议上的协议：</p>
+<p>HTTP（Hypertext Transfer Protocol，超文本传输协议），主要用于普通浏览。</p>
+<p>HTTPS（HTTP over SSL，安全超文本传输协议），HTTP协议的安全版本。</p>
+<p>FTP（File Transfer Protocol，文件传输协议），用于文件传输。</p>
+<p>POP3（Post Office Protocol, version 3，邮局协议），收邮件用。</p>
+<p>SMTP（Simple Mail Transfer Protocol，简单邮件传输协议），用来发送电子邮件。</p>
+<p>TELNET（Teletype over the<br>Network，网络电传），通过一个终端（terminal）登陆到网络。</p>
+<p>SSH（Secure Shell，用于替代安全性差的TELNET），用于加密安全登陆用。</p>
+<p>运行在UDP协议上的协议：</p>
+<p>BOOTP（Boot Protocol，启动协议），应用于无盘设备。</p>
+<p>NTP（Network Time Protocol，网络时间协议），用于网络同步。</p>
+<p>DHCP（Dynamic Host Configuration Protocol，动态主机配置协议），动态配置IP地址。</p>
+<p>运行在TCP和UDP协议上：</p>
+<p>DNS（Domain Name Service，域名服务），用于完成地址查找，邮件转发等工作。</p>
+<p><strong>网络层——</strong></p>
+<p>选择合适的网间路由和交换结点，确保计算机通信的数据及时传送。在TCP/IP体系结构中，由于网络层使用IP协议，因此分组也叫IP数据报，简称数据报。互联网使用的网络层协议是无连接的网际协议（Intert<br>Prococol）和许多路由选择协议。网络层也叫做网际层或IP层。</p>
+<p><strong>数据链路层——</strong></p>
+<p>在两个相邻节点之间传送数据时，数据链路层将网络层交下来的 IP<br>数据报组装成帧，在两个相邻节点间的链路上传送帧。每一帧包括数据和必要的控制信息（如同步信息，地址信息，差错控制等）。在接收数据时，控制信息使接收端能够知道一个帧从哪个比特开始和到哪个比特结束。</p>
+<p><strong>物理层——</strong></p>
+<p>实现相邻计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。在物理层上所传送的数据单位是比特，“透明传送比特流”表示经实际电路传送后的比特流没有发生变化，对传送的比特流来说，这个电路好像是看不见的。</p>
+<p>发送和接受的过程是增加头部和删除头部的过程。</p>
+<p>发送时，应用层是HTTP数据，到传输层加TCP首部，到网络层加IP头部，到链路层加以太网头部；接受时反之，逐层删除头部。</p>
+<h1 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h1><p><strong>TCP头部结构：</strong></p>
+<p>序号：seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。</p>
+<p>确认序号：ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，<strong>ack=seq+1</strong>。</p>
+<p>标志位：共6个，即URG（紧急指针有效）、ACK（确认序号有效）、PSH（优先交给应用层）、RST（重置连接）、SYN（发起新连接）、FIN（释放连接）等。</p>
+<p><strong>三次握手建立连接：</strong>第一次确认了客户端有发送能力(SYN=1)，第二次确认了服务端有发送和接收能力(SYN=1,ACK=1)，第三次确定了客户端有接收能力(ACK=1)。</p>
+<p><strong>四次挥手关闭连接：</strong>第一次客户端停止发送(FIN=1)，第二次服务端停止接受(ACK=1)，第三次服务端停止发送(FIN=1,ACK=1)，第四次客户端停止接受(ACK=1)。</p>
+<p><strong>客户端发出第四次挥手的确认报文后要等2*MSL（报文段最大生存时间）的时间才能释放TCP连接</strong>，是考虑到第四次挥手的报文丢失（丢包），服务端没收到确认ack报文（收到代表同意客户端停止接受）就会重发第三次挥手的报文，这样报文来回最长时间即为2MSL，这样就可以确定第四次挥手的报文被客户端收到了。</p>
+<p><strong>已连接的TCP，客户端故障</strong>，TCP有保活计时器，每收到一次客户端的请求后都会重新复位这个计时器，若计时器两小时内还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
+<p><strong>长连接和短连接</strong>的产生在于 Client 和 Server<br>采取的关闭策略。短连接一般只在C和S间传递一次读写操作，随后C和S都可以发起close操作，便于管理，且存在连接都是有用的；长连接不会自动关闭，连接过多会使S压力过大，因此S通过某些策略进行关闭连接，如限制客户端最大连接数。</p>
+<p><strong>TCP存在粘包、拆包</strong>，因为UDP是基于报文发送的，首部采用16bit来指出UDP的报文长度，而TCP基于字节流，数据大小不等且无边界，所以会发生粘包、拆包的问题。</p>
+<p>粘包可能是两个数据包完全被接收端当作一个，拆包则是当作两个数据包，但其中间边界分割出错。</p>
+<p><strong>具体原因</strong>有：要发送的数据大于 TCP<br>发送缓冲区剩余空间大小，将会发生拆包；待发送数据大于 MSS（最大报文长度），TCP<br>在传输前将进行拆包；要发送的数据小于 TCP 发送缓冲区的大小，TCP<br>将多次写入缓冲区的数据一次发送出去，将会发生粘包；接收数据端的应用层没有及时读取接收缓冲区中的数据，将发生粘包；</p>
+<p><strong>解决办法</strong>（只能通过上层的应用协议栈设计来解决）：</p>
+<p>消息定长：发送端将每个数据包封装为固定长度（不够的可以通过补 0<br>填充），这样接收端每次接收缓冲区中读取固定长度的数据就自然而然的把每个数据包拆分开来。</p>
+<p>设置消息边界：服务端从网络流中按消息边界分离出消息内容。在包尾增加回车换行符进行分割，例如<br>FTP 协议。</p>
+<p>将消息分为消息头和消息体：消息头中包含表示消息总长度（或者消息体长度）的字段。</p>
+<p>更复杂的应用层协议比如 Netty 中实现的一些协议都对粘包、拆包做了很好的处理。</p>
+<p><strong>TCP<br>使用超时重传来实现可靠传输：</strong>如果一个已经发送的报文段在超时时间（略大于RTTs（=(1-a)*RTTs+a*RTT，RTTs为加权平均往返时间））内没有收到确认，那么就重传这个报文段。</p>
+<p><strong>TCP滑动窗口</strong>，以便客户端、服务端控制发送和接受速率。</p>
+<p><strong>TCP流量控制</strong>，控制发送方发送速率，接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率。</p>
+<p>为了避免此问题的产生，发送端主机会时不时的发送一个叫做窗口探测的数据段，此数据段仅包含一个字节来获取最新的窗口大小信息。</p>
+<p>TCP拥塞控制，主要通过慢开始、拥塞避免、快重传、快恢复 四个算法来控制。</p>
+<p><strong>《TCP/IP详解 卷1:协议》：TCP状态变迁图</strong></p>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p><strong>HTTP</strong>是两点间传输文字、图片、音频、视频等超文本数据的约定和规范。运行在TCP连接上，无证书不加密，客服两端无法互相验证。</p>
+<p><strong>HTTPS</strong>运行在SSL上，SSL运行在TCP上，有加密，需证书，安全性更强。</p>
+<p><strong>HTTP协议</strong>中定义了浏览器和服务器进行交互的不同方法，基本方法有4种，分别是GET，POST，PUT，DELETE。分别为浏览器对服务器资源的查，改，增，删。</p>
+<p>就发送的数据的安全性，分为<strong>对称加密</strong>（快、不安全）和<strong>非对称加密</strong>（慢、安全）。</p>
+<p>对称密钥加密是指加密和解密使用同一个密钥的方式。</p>
+<p>非对称加密是指发送密文的一方使用对方的公钥进行加密处理，对方接收到加密信息后，使用自己的私钥进行解密。</p>
+<p><strong>HTTP2</strong>在HTTP的基础上中引入了多路复用的技术，从而解决了同一个域名下的请求数量的限制问题，实现了同一个TCP，传输所有请求。</p>
+<p><strong>Cookie和Session</strong>都是方便服务器来辨认用户身份的小文件（单个cookie小于4k），cookie数据存放在客户端上，安全性较差，session数据放在服务器上，安全性相对更高，但存放在服务器上会占用服务器性能，一般使用cookie。</p>
+<p><strong>Token</strong>的定义：Token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，无需再次带上用户名和密码。</p>
+<p>使用Token的目的：Token的目的是为了减轻服务器的压力，减少频繁的查询数据库，使服务器更加高效。</p>
+<p>Token是在服务端产生的。如果前端使用用户名/密码向服务端请求认证，服务端认证成功，那么在服务端会返回Token给前端。前端可以在每次请求的时候带上Token证明自己的合法地位</p>
+<p><strong>禁用Cookie会导致得不到Session</strong>，因为Session是用Session<br>ID来确定当前对话所对应的服务器Session，而Session<br>ID是通过Cookie来传递的，禁用Cookie相当于失去了Session<br>ID，也就得不到Session了。除非通过手动传递或者保存Session ID。</p>
+<p>下次学习总结TCP的效率优化。</p>
 
       
 
@@ -201,7 +296,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">TCP</a>
         		</li>
       		
 		</ul>
@@ -220,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/22/leetcode-581/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode-581
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/19/leetcode-905/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-905</div>
+    <a href="/2020/07/22/leetcode-581/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-581</div>
       <i class="icon-circle-right"></i>
     </a>
   

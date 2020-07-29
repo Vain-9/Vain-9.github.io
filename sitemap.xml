@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/07/29/TCP-IP/</loc>
+    
+    <lastmod>2020-07-29T12:51:45.829Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/07/22/leetcode-581/</loc>
     
     <lastmod>2020-07-22T14:42:46.841Z</lastmod>
