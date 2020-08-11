@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>lu | Vain</title>
+  <title>spring入门 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱">
+  <meta name="description" content="Spring Boot，Spring Cloud，Spring Cloud Data Flow。Spring Cloud Data Flow又可以分为Spring Integration和Spring Batch两部分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lu">
-<meta property="og:url" content="http://yoursite.com/2020/04/05/lu/index.html">
+<meta property="og:title" content="spring入门">
+<meta property="og:url" content="http://yoursite.com/2020/08/11/spring%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="热爱">
+<meta property="og:description" content="Spring Boot，Spring Cloud，Spring Cloud Data Flow。Spring Cloud Data Flow又可以分为Spring Integration和Spring Batch两部分。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-05T07:48:58.000Z">
-<meta property="article:modified_time" content="2020-04-05T07:49:12.167Z">
+<meta property="article:published_time" content="2020-08-11T05:54:36.000Z">
+<meta property="article:modified_time" content="2020-08-11T05:56:18.448Z">
 <meta property="article:author" content="Vain">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -145,27 +145,147 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="title-lu" class="article article-type-title " itemscope itemprop="blogPost">
+            <article id="post-spring入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      lu
+      spring入门
     </h1>
   
 
         
-        <a href="/2020/04/05/lu/" class="archive-article-date">
-  	<time datetime="2020-04-05T07:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
+        <a href="/2020/08/11/spring%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2020-08-11T05:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>热爱</p>
+        <p>Spring Boot，Spring Cloud，Spring Cloud Data Flow。Spring Cloud Data Flow又可以分为Spring Integration和Spring Batch两部分。</p>
+<a id="more"></a>
+
+<p>针对Spring的学习，第一步就是理解IoC和AOP；这是基础；然后学习SpringMVC,其实还是Java EE开发，如果要理解这个框架，就要知道没有这个框架之前，使用的是什么技术。</p>
+<p>Spring：SE/EE开发的一站式框架。</p>
+<p>一站式框架：有EE开发的每一层解决方案。</p>
+<table>
+<thead>
+<tr>
+<th>WEB层</th>
+<th>SpringMVC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Service层</td>
+<td>Spring的Bean管理，Spring声明式事务</td>
+</tr>
+<tr>
+<td>DAO层</td>
+<td>Spring的Jdbc模板，Spring的ORM模块</td>
+</tr>
+</tbody></table>
+<h1 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h1><p>即控制反转——把本应由程序员创建和维护的bean交给spring管理。就是对象的创建交给外部容器（IOC容器）完成。Spring使用注入依赖来实现对象之间的依赖关系。由于控制反转，资源管理更集中，易于对资源的合理配置，同时降低了使用资源双方的依赖度（耦合度）。可以理解为，交易（对象的创建与销毁）托管给第三方（IOC容器），可以变得更可靠灵活。</p>
+<p>IoC和DI其实是同一个概念的不同角度描述，DI相对IoC而言，明确描述了“被注入对象依赖IoC容器配置依赖对象”</p>
+<h1 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h1><p>即面向切面编程——解决一些系统交叉业务的织入，如日志事务。一个交叉业务就是切入系统的一个方面，为了交叉业务的编程问题，AOP把交叉业务模块化，做法是把切面代码移动到原始方法周围——把方法内部的交叉业务代码写在方法调用前后。</p>
+<p>关于AOP的底层原理：动态代理其实就是代理对象调用目标对象的同名方法，并在调用前后加增强代码。</p>
+<p>模块化就是把交叉业务的代码放在一个切面上，作为一个抽象的切面类，以方便管理。</p>
+<p>AOP能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
+<p>在我们的控制器中注入service层对象，Spring依赖注入的对象并不一定是我们自己写的类的实例，也可能是我们UserServiceImpl的代理对象。</p>
+<p>如果给UserServiceImpl加了@Transactional 注解，Spring读取到这个注解，便知道我们要使用事务。而我们编写的UserService类中并没有包含任何事务相关的代码。这里便发生了动态代理。（如果不加@Transactional，那么Controller层注入的就是普通的userServiceImpl，而加了以后返回的实际是代理对象）</p>
+<p><strong>有一种观点是把spring看作一种容器</strong>，但spring不只是一种map，真正存单例对象的map只是factorybean的的一个字段。</p>
+<p>就拿ApplicationContext来讲，它也实现了BeanFactory接口，但是作为容器，其实它是用来包含各种各样的组件的，而不是存bean。虽然applicationcontext实现（包括）了beanfactory，但这两者（都是接口）也都有其自己的子类，如注解驱动开发时，Spring中最关键的就是AnnotationConfigApplicationContext和DefaultListableBeanFactory。</p>
+<p>容器的概念在java中你最熟悉的莫过于Tomcat了，它正是一个运行Servlet的web容器，而Spring要想实现依赖注入功能，就离不开对象生产的容器——如果没有容器负责对象的创建管理，你的程序代码只是喊要对象了，Spring也无处给你啊。实际上，容器是Spring框架实现功能的核心，容器不只是帮我们创建了对象那么简单，它负责了对象整个的生命周期的管理——创建、装配、销毁。</p>
+<p>IOC容器可以归为两大类，一是bean工厂（beanfactory，功能简单），二是应用上下文（applicationcontext，功能强大）</p>
+<p>Spring是通过<strong>后置处理器</strong>（在applicationcontext中实现）来实现事务代码的织入。后置处理器是spring的扩展点之一，类型如下：</p>
+<table>
+<thead>
+<tr>
+<th>扩展接口</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Beanfactorypostprocess</td>
+<td>处理bean前对beanfactory进行预处理</td>
+</tr>
+<tr>
+<td>Beandefinitionregistrypostprocess</td>
+<td>可以添加自定义的bean</td>
+</tr>
+<tr>
+<td>Beanpostprocess</td>
+<td>对初始化前后的bean进行处理</td>
+</tr>
+<tr>
+<td>Applicationcontextaware</td>
+<td>可以获得applicationcontext以及其bean</td>
+</tr>
+<tr>
+<td>Initializingbean</td>
+<td>Bean创建完成且所有属性注入完成后执行</td>
+</tr>
+<tr>
+<td>Disposablebean</td>
+<td>在bean销毁前执行</td>
+</tr>
+<tr>
+<td>Applicationlistener</td>
+<td>监听发生的应用事件</td>
+</tr>
+</tbody></table>
+<p>后置处理器——实现一个接口，某些相关方法就会被调用并传入一个对象，其实明面上是一个接口，但该接口包含着bean的初始化创建和各种支持的方法，随着接口调用，spring框架会判断调用该接口中有关的各种方法和操作。</p>
+<p>这就是控制反转样式。</p>
+<p>后置处理器是<strong>接口</strong>的核心。</p>
+<p>ApplicationContext保存了ioc的整个应用上下文，可以通过其中的beanfactory获取到任意到bean；</p>
+<p>BeanFactory主要的作用是根据beandefinition来创建具体的bean；</p>
+<p>BeanWrapper是对Bean的包装，一般情况下是在springioc内部使用，提供了访问bean的属性值、属性编辑器注册、类型转换等功能，方便ioc容器用统一的方式来访问bean的属性；</p>
+<p>FactoryBean通过getObject方法返回实际的bean对象，例如motan框架中referer对service的动态代理就是通过FactoryBean来实现的。</p>
+<p>Spring首先会扫描解析指定位置的所有的类得到Resources，然后依照TypeFilter和@Conditional注解决定是否将这个类解析为BeanDefinition，稍后再把一个个BeanDefinition取出实例化成Bean（BeanDefinition是bean在spring中的描述，有了BeanDefinition我们就可以创建Bean）</p>
+<p>BeanDefiniton向上分类：</p>
+<p>BeanMetadataElement接口：BeanDefinition元数据，返回该Bean的来源</p>
+<p>AttributeAccessor接口：提供对BeanDefinition属性操作能力</p>
+<p><strong>Bean是如何</strong>在容器中<strong>加载创建的：</strong></p>
+<p>Refresh方法中，刷新容器，设置容器参数性质，obtainfreshbeanfactory方法设置了bean的加载——先销毁已存在的beanfactory容器，然后创建新的容器，设置id和定制化属性（如bean的定义是否可覆盖、是否允许循环依赖），加载bean的定义进入beandefinition容器中，然后是对容器做配置，并读取配置文件以及加载（通过for循环全部读取加载并返回数量），把配置文件加载为document类文件并转化为element，判断element是否为bean的标签并注册beandefinition，然后对beandefinition进行解析，如果是默认标签就直接解析（多个if<br>else语句判断），其他方法解析定制化标签，解析后设置描述性信息，对beandefinition注册进容器，注册后即可以使用beandefinition进行实例化，在方法finishbeanfactoryinglaitons中，判断是否为factorybean中的，如果是，要判断是加载器本身还是其创建的bean，如果是factorybean就把bean前面的and去掉，getsingleton方法的三级缓存是为了解决循环依赖，若缓存中不为空，仍判断是普通bean还是factorybean，如果是后者，要返回的是factorybean要创建的bean，如果自己没有bean就去其父母容器去找，如果bean是单例的（单例bean与原型bean，singletonScope与prototypeScope，singletonScope，即单例Bean，顾名思义具有单例模式的所有特性，在spring容器里面只会初始化出一个bean实例，存于缓存中。后续的请求都公用这个对象。最简单的创建单例bean的方式，就是直接在类名上面加@Service注解。prototypeScope，即原型Bean，每次请求时都会创建新的bean实例直接使用。创建原型Bean，需要显示指定scope属性，相比原例bean，单例bean可以减少系统新建实例浪费的资源，jvm垃圾回收，并且容易在缓存中快速找到bean，但其缺点为在并发环境下的线程不安全）。</p>
+<p>第1步：调用bean的构造方法创建bean；</p>
+<p>第2步：通过反射调用setter方法进行属性的依赖注入；</p>
+<p>第3步：如果实现BeanNameAware接口的话，会设置bean的name；</p>
+<p>第4步：如果实现了BeanFactoryAware，会把bean factory设置给bean；</p>
+<p>第5步：如果实现了ApplicationContextAware，会给bean设置ApplictionContext；</p>
+<p>第6步：如果实现了BeanPostProcessor接口，则执行前置处理方法；</p>
+<p>第7步：实现了InitializingBean接口的话，执行afterPropertiesSet方法；</p>
+<p>第8步：执行自定义的init方法；</p>
+<p>第9步：执行BeanPostProcessor接口的后置处理方法。这时，就完成了bean的创建过程。在使用完bean需要销毁时，会先执行DisposableBean接口的destroy方法，然后在执行自定义的destroy方法。</p>
+<p><strong>配置对象</strong>的方法大致可以分为三种——使用XML文件配置、使用注释来配置、使用JavaConfig来配置（现在用的比较多的是注解和javaConfig的形式配置）。</p>
+<p><strong>spring4中的jar包一共有20个</strong></p>
+<p>Core部分包含4个模块——</p>
+<p>spring-core：依赖注入IoC与DI的最基本实现</p>
+<p>spring-beans：Bean工厂与bean的装配</p>
+<p>spring-context：spring的context上下文即IoC容器</p>
+<p>spring-expression：spring表达式语言</p>
+<p>AOP部分包含4个模块——</p>
+<p>spring-aop：面向切面编程</p>
+<p>spring-aspects：集成AspectJ</p>
+<p>spring-instrument：提供一些类级的工具支持和ClassLoader级的实现，用于服务器</p>
+<p>spring-instrument-tomcat：针对tomcat的instrument实现</p>
+<p>Data Access/Integration部分包含5个模块——</p>
+<p>spring-jdbc：jdbc的支持</p>
+<p>spring-tx：事务控制</p>
+<p>spring-orm：对象关系映射，集成orm框架</p>
+<p>spring-oxm：对象xml映射</p>
+<p>spring-jms：java消息服务</p>
+<p>Web部分包含3个模块——</p>
+<p>spring-web：基础web功能，如文件上传</p>
+<p>spring-webmvc：mvc实现</p>
+<p>spring-webmvc-portlet：基于portlet的mvc实现</p>
+<p>spring-websocket：为web应用提供的高效通信工具</p>
+<p>Test部分一个模块——</p>
+<p>spring-test：spring测试，提供junit与mock测试功能</p>
+<p>剩下的包是——</p>
+<p>spring-messaging：用于构建基于消息的应用程序</p>
+<p>spring-context-support：spring额外支持包，比如邮件服务、视图解析等</p>
 
       
 
@@ -179,7 +299,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
@@ -198,18 +318,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/19/%E4%BA%BA%E7%89%A9%E5%A1%91%E9%80%A0-%E7%AC%AC%E4%BA%8C%E7%9C%9F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          人物塑造-第二真
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/05/x/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">x</div>
+    <a href="/2020/07/29/TCP-IP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TCP/IP</div>
       <i class="icon-circle-right"></i>
     </a>
   
