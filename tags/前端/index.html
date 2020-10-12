@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode_167 | Vain</title>
+  <title>Tag: 前端 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="167.两数之和II -输入有序数组">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_167">
-<meta property="og:url" content="http://yoursite.com/2020/05/21/leetcode-167/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Vain">
+<meta property="og:url" content="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="167.两数之和II -输入有序数组">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-21T03:39:09.000Z">
-<meta property="article:modified_time" content="2020-05-21T06:47:45.950Z">
 <meta property="article:author" content="Vain">
-<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -145,164 +140,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-167" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      leetcode_167
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/10/12/jsp%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-10-12T07:15:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/10/12/jsp%E5%9F%BA%E7%A1%80/">jsp基础</a>
     </h1>
   
 
-        
-        <a href="/2020/05/21/leetcode-167/" class="archive-article-date">
-  	<time datetime="2020-05-21T03:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="167-两数之和II-输入有序数组"><a href="#167-两数之和II-输入有序数组" class="headerlink" title="167.两数之和II -输入有序数组"></a>167.两数之和II -输入有序数组</h1><a id="more"></a>
-
-<p><strong>给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。</strong></p>
-<p>解：</p>
-<p>双指针法——分别记录第一个元素和最后一个元素，求和后与target值比较大小，偏大则移动尾指针（值变小），偏小则移动头指针（值变大），等于目标值则按序输出头尾指针。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度：O(n)。每个元素最多被访问一次。</p>
-<p>空间复杂度：O(1)。只是用了两个指针。</p>
-<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p><strong>vector作为参数的三种传参方式</strong></p>
-<p>c++中常用的vector容器作为参数时（为说明问题，用二维vector）：</p>
-<ol>
-<li>function1(std::vector&lt;std::vector&lt;int&gt; &gt; vec)，传值</li>
-<li>function2(std::vector&lt;std::vector&lt;int&gt; &gt;&amp; vec)，传引用</li>
-<li>function3(std::vector&lt;std::vector&lt;int&gt; &gt;* vec)，传指针</li>
-</ol>
-<p>三种方式对应的调用形式分别为：</p>
-<ol>
-<li>function1(vec)，传入值</li>
-<li>function2(vec)，传入引用</li>
-<li>function3(&amp;vec),传入地址</li>
-</ol>
-<p>三种方式在函数调用时是否了vector的拷贝构造函数：</p>
-<ol>
-<li>会发生拷贝构造</li>
-<li>不会发生拷贝构造</li>
-<li>不会发生拷贝构造</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>函数体</th>
-<th>函数调用</th>
-<th>拷贝构造函数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void 函数名(vector&lt;int&gt; obj);</td>
-<td>deal( vec );</td>
-<td></td>
-</tr>
-<tr>
-<td>void 函数名(vector&lt;int&gt;* pobj);</td>
-<td>deal( &amp;vec );</td>
-<td></td>
-</tr>
-<tr>
-<td>void 函数名(const vector&lt;int&gt;* pobj);</td>
-<td>deal( &amp;vec );</td>
-<td>调用时不会调用拷贝构造函数</td>
-</tr>
-<tr>
-<td>void 函数名(vector&lt;int&gt;&amp; obj);</td>
-<td>deal( vec );</td>
-<td></td>
-</tr>
-<tr>
-<td>void 函数名(const vector&lt;int&gt;&amp; obj);</td>
-<td>deal( vec );</td>
-<td>调用时会调用拷贝构造函数</td>
-</tr>
-</tbody></table>
-<p>*如果需要在函数中对vector容器中数据调换顺序等操作需要是引用传递</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; numbers, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>, high = numbers.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">    <span class="keyword">return</span> &#123;low + <span class="number">1</span>, high + <span class="number">1</span>&#125;;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/05/21/leetcode-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode_1
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/05/20/leetcode-941/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode_941</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -326,9 +217,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>leetcode_167 | Vain</title>
+  <title>jsp基础 | Vain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="167.两数之和II -输入有序数组">
+  <meta name="description" content="Java Server Pages">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_167">
-<meta property="og:url" content="http://yoursite.com/2020/05/21/leetcode-167/index.html">
+<meta property="og:title" content="jsp基础">
+<meta property="og:url" content="http://yoursite.com/2020/10/12/jsp%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Vain">
-<meta property="og:description" content="167.两数之和II -输入有序数组">
+<meta property="og:description" content="Java Server Pages">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-21T03:39:09.000Z">
-<meta property="article:modified_time" content="2020-05-21T06:47:45.950Z">
+<meta property="article:published_time" content="2020-10-12T07:15:55.000Z">
+<meta property="article:modified_time" content="2020-10-12T07:19:01.450Z">
 <meta property="article:author" content="Vain">
-<meta property="article:tag" content="array">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Vain" type="application/atom+xml">
@@ -145,88 +145,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-167" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jsp基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode_167
+      jsp基础
     </h1>
   
 
         
-        <a href="/2020/05/21/leetcode-167/" class="archive-article-date">
-  	<time datetime="2020-05-21T03:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
+        <a href="/2020/10/12/jsp%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-10-12T07:15:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="167-两数之和II-输入有序数组"><a href="#167-两数之和II-输入有序数组" class="headerlink" title="167.两数之和II -输入有序数组"></a>167.两数之和II -输入有序数组</h1><a id="more"></a>
-
-<p><strong>给定一个升序排列的数组以及一个目标值——求数组中的两个元素和为目标值，并按序输出两个元素的下标。</strong></p>
-<p>解：</p>
-<p>双指针法——分别记录第一个元素和最后一个元素，求和后与target值比较大小，偏大则移动尾指针（值变小），偏小则移动头指针（值变大），等于目标值则按序输出头尾指针。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>时间复杂度：O(n)。每个元素最多被访问一次。</p>
-<p>空间复杂度：O(1)。只是用了两个指针。</p>
-<h1 id="Tip："><a href="#Tip：" class="headerlink" title="Tip："></a>Tip：</h1><p><strong>vector作为参数的三种传参方式</strong></p>
-<p>c++中常用的vector容器作为参数时（为说明问题，用二维vector）：</p>
-<ol>
-<li>function1(std::vector&lt;std::vector&lt;int&gt; &gt; vec)，传值</li>
-<li>function2(std::vector&lt;std::vector&lt;int&gt; &gt;&amp; vec)，传引用</li>
-<li>function3(std::vector&lt;std::vector&lt;int&gt; &gt;* vec)，传指针</li>
-</ol>
-<p>三种方式对应的调用形式分别为：</p>
-<ol>
-<li>function1(vec)，传入值</li>
-<li>function2(vec)，传入引用</li>
-<li>function3(&amp;vec),传入地址</li>
-</ol>
-<p>三种方式在函数调用时是否了vector的拷贝构造函数：</p>
-<ol>
-<li>会发生拷贝构造</li>
-<li>不会发生拷贝构造</li>
-<li>不会发生拷贝构造</li>
-</ol>
+        <p>Java Server Pages</p>
+<a id="more"></a>
+<p>JSP是Spring MVC中很重要的一部分。</p>
 <table>
 <thead>
 <tr>
-<th>函数体</th>
-<th>函数调用</th>
-<th>拷贝构造函数</th>
+<th>Servlet</th>
+<th>能处理HTTP请求并将HTTP响应返回</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>void 函数名(vector&lt;int&gt; obj);</td>
-<td>deal( vec );</td>
-<td></td>
+<td>JSP</td>
+<td>一种嵌套Java代码的HTML，将被编译为Servlet</td>
 </tr>
 <tr>
-<td>void 函数名(vector&lt;int&gt;* pobj);</td>
-<td>deal( &amp;vec );</td>
-<td></td>
+<td>Filter</td>
+<td>能过滤指定的URL以实现拦截功能</td>
 </tr>
 <tr>
-<td>void 函数名(const vector&lt;int&gt;* pobj);</td>
-<td>deal( &amp;vec );</td>
-<td>调用时不会调用拷贝构造函数</td>
-</tr>
-<tr>
-<td>void 函数名(vector&lt;int&gt;&amp; obj);</td>
-<td>deal( vec );</td>
-<td></td>
-</tr>
-<tr>
-<td>void 函数名(const vector&lt;int&gt;&amp; obj);</td>
-<td>deal( vec );</td>
-<td>调用时会调用拷贝构造函数</td>
+<td>Listener</td>
+<td>监听指定的事件，如ServletContext、HttpSession的创建和销毁</td>
 </tr>
 </tbody></table>
-<p>*如果需要在函数中对vector容器中数据调换顺序等操作需要是引用传递</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; numbers, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>, high = numbers.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">    <span class="keyword">return</span> &#123;low + <span class="number">1</span>, high + <span class="number">1</span>&#125;;</span><br><span class="line">    <span class="comment">//…</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JSP 技术是以 Java 语言作为脚本语言的，JSP 网页为整个服务器端的 Java<br>库单元提供了一个接口来服务于HTTP的应用程序。</p>
+<p>JSP是一种基于文本的程序，其特点就是HTML和Java代码共同存在，可以把JSP理解成封装了Servlet的java程序，其本质为Servlet。</p>
+<p>JSP是为了简化Servlet的工作出现的替代品，Servlet输出HTML非常困难，JSP就是替代Servlet输出HTML的。</p>
+<p>具体的编译过程——浏览器第一次请求 .jsp时，tomcat会将<br>.jsp文件转化为java的一个类，并且进行编译，变成<br>.class文件，编译完毕后再允许class文件来响应浏览器的请求，如果Tomcat检测到JSP页面改动了的话，才会重新编译的；JSP页面中的HTML排版标签是通过write()方法发送到浏览器的。</p>
+<p>JSP的代理服务器是通过内置对象（内置对象有：out、session、response、request、config、page、application、pageContext、exception）来实现的，java代码就在类中的service()中。</p>
+<p>表达式语言（Expression<br>Language，EL）,EL表达式是用${}括起来的脚本，用来更方便的读取对象。</p>
+<p>JSTL全称为 JSP Standard Tag Library 即JSP标准标签库。</p>
+<table>
+<thead>
+<tr>
+<th>编译阶段</th>
+<th>servlet容器编译servlet源文件，生成servlet类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始化阶段</td>
+<td>加载与JSP对应的servlet类，创建其实例，并调用它的初始化方法</td>
+</tr>
+<tr>
+<td>执行阶段</td>
+<td>调用与JSP对应的servlet实例的服务方法</td>
+</tr>
+<tr>
+<td>销毁阶段</td>
+<td>调用与JSP对应的servlet实例的销毁方法，然后销毁servlet实例</td>
+</tr>
+</tbody></table>
+<p>编译——解析JSP文件、将JSP文件转为servlet、编译servlet。</p>
+<p>初始化——通过jspInit()方法，自定义需复写。</p>
+<p>执行——当JSP网页完成初始化后，JSP引擎将会调用_jspService()方法。_jspService()方法需要一个HttpServletRequest对象和一个HttpServletResponse对象作为它的参数，在每个request中被调用一次并且负责产生与之相对应的response，并负责产生所有HTTP方法的回应。</p>
+<p>销毁——jspDestroy()方法在JSP中等价于servlet中的销毁方法。</p>
+
       
 
       
@@ -239,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -258,18 +251,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/21/leetcode-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode_1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/20/leetcode-941/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode_941</div>
+    <a href="/2020/09/25/%E7%8B%AC%E5%B1%85%E7%9A%84%E7%81%B5%E9%AD%82/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">独居的灵魂</div>
       <i class="icon-circle-right"></i>
     </a>
   
